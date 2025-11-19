@@ -1,1 +1,1 @@
-# mystery-box-lp
+https://dmitrypetrov-dev.github.io/mystery-box-lp/
