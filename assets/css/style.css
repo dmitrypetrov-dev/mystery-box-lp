@@ -426,6 +426,29 @@ body {
     margin: 0 auto;
 }
 
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.header__wrapper {
+    padding-top: 1rem;
+    text-align: right;
+}
+
+.header__select {
+    outline: none;
+}
+
 .page {
     height: 100%;
 }
@@ -433,7 +456,7 @@ body {
 ._container {
     max-width: 46rem;
     margin: 0 auto;
-    padding: 0 20px
+    padding: 0 1.25rem;
 }
 
 .welcome__container {
@@ -478,6 +501,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     background-image: linear-gradient(90deg, #FFFFFF 0%, #A9B4C3 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -544,6 +568,7 @@ body {
 .welcome__bottom {
     font-size: 0.875rem;
     color: #080C0E;
+    text-transform: uppercase;
 }
 
 .modal {

@@ -65,6 +65,12 @@ $(document).ready(function () {
     // Запуск
     setTimeout(smallGrowth, 2000);
     setTimeout(bigGrowth, 10000);
+
+    // language selection code
+    $('#language-select').on('change', function () {
+        const url = $(this).val();
+        window.location.href = url;
+    });
 });
 document.addEventListener('DOMContentLoaded', function () {
     const splide = new Splide('.splide', {
@@ -73,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         arrows: false,
         pagination: true,
         autoWidth: true,
+        focus: 'center',
         gap: '1.5rem',
         mediaQuery: 'min',
         breakpoints: {
