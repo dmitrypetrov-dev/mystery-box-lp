@@ -65,6 +65,21 @@ $(document).ready(function () {
     // Запуск
     setTimeout(smallGrowth, 2000);
     setTimeout(bigGrowth, 10000);
-
-
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const splide = new Splide('.splide', {
+        type: 'slide',
+        drag: 'free',
+        arrows: false,
+        pagination: true,
+        autoWidth: true,
+        gap: '1.5rem',
+        mediaQuery: 'min',
+        breakpoints: {
+            768: {
+                destroy: true,
+            },
+        }
+    });
+    splide.mount();
 });
