@@ -11,34 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        /* Перспектива для 3D эффекта */
-        body {
-            perspective: 1200px;
-        }
-
-        .modal__content {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform-origin: center;
-            opacity: 0;
-            transform: scale(0.3) rotateX(35deg) translateY(50px);
-            display: none;
-            transition: transform 0.6s cubic-bezier(.25, 1.5, .5, 1), opacity .4s;
-        }
-
-        /* Контейнер для конфетти */
-        .confetti {
-            position: fixed;
-            pointer-events: none;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: visible;
-        }
-    </style>
 </head>
 
 <body>
@@ -109,5 +81,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modal-animation.js"></script>
 </body>
+
 
 </html>
