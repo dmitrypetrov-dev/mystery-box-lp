@@ -1,0 +1,38 @@
+$('.welcome__box').on('click', function (i) {
+
+    const box = $(this)[0].getBoundingClientRect()
+    setTimeout(() => {
+        $(".modal").fadeIn(200);
+    }, 500);
+
+    const modal = $('.modal__content');
+
+    const clickedBox = $(this);
+    clickedBox.addClass('active');
+
+    modal.css({
+        display: 'block',
+        position: 'fixed',
+        top: box.top + 'px',
+        left: box.left + 'px',
+        width: box.width + 'px',
+        height: box.height + 'px',
+        transform: 'scale(0.3) rotateX(50deg)',
+        opacity: 0,
+    });
+
+    setTimeout(() => {
+        modal.css({
+            position: 'static',
+            top: '50%',
+            left: '50%',
+            width: 'auto',
+            height: 'auto',
+            transform: 'translate(0, 0) scale(1) rotateX(0deg)',
+            opacity: 1
+        });
+    }, 1000);
+
+    // 4. Запускаем конфетти
+    //launchConfetti(box.left + box.width / 2, box.top + box.height / 2);
+});

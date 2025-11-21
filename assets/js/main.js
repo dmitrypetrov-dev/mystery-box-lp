@@ -1,16 +1,18 @@
 $(document).ready(function () {
     //boxes code
     $(".welcome__box").on("click", function () {
-        $(".modal").show(0);
+        // $(".modal").show(0);
         updateSpinValues();
-        setTimeout(() => {
-            $(".modal").addClass("active");
+        // setTimeout(() => {
+        //     //$(".modal").addClass("active");
+        //     $(".modal").fadeIn(200);
+        //     $(".modal__content").effect("bounce", { times: 2, distance: 50 }, 500);
 
-            // Запуск анимации конфетти с задержкой
-            $(".confetti").each(function (i) {
-                $(this).css("animation-delay", (i * 0.15) + "s");
-            });
-        }, 10);
+        //     // Запуск анимации конфетти с задержкой
+        //     $(".confetti").each(function (i) {
+        //         $(this).css("animation-delay", (i * 0.15) + "s");
+        //     });
+        // }, 10);
     });
     function updateSpinValues() {
         let options = [10, 20, 30];
@@ -23,13 +25,9 @@ $(document).ready(function () {
     let baseValue = 991;
     let savedValue = localStorage.getItem("liveUsers");
     let counter = savedValue ? parseInt(savedValue) : baseValue;
-
-    // Форматирование
     function formatNumber(n) {
         return n.toLocaleString("en-US");
     }
-
-    // Плавная анимация
     function animateNumber(from, to, duration = 600) {
         let start = performance.now();
         requestAnimationFrame(function step(ts) {
@@ -39,37 +37,22 @@ $(document).ready(function () {
             if (progress < 1) requestAnimationFrame(step);
         });
     }
-
-    // Обновление и запись
     function updateCounter(delta) {
-        // гарантируем, что никогда не уходим вниз
         if (delta < 0) delta = Math.abs(delta);
-
         let oldValue = counter;
         counter += delta;
-
         localStorage.setItem("liveUsers", counter);
         animateNumber(oldValue, counter);
     }
-
-    // ===== Живое поведение (без спадов) =====
-
-    // Частые мелкие приросты
     function smallGrowth() {
-        updateCounter(Math.floor(Math.random() * 3) + 1); // +1–3
-        setTimeout(smallGrowth, Math.random() * 2000 + 1500); // 1.5–3.5 сек
+        updateCounter(Math.floor(Math.random() * 3) + 1);
+        setTimeout(smallGrowth, Math.random() * 2000 + 1500);
     }
-
-    // Редкие большие всплески
     function bigGrowth() {
-        updateCounter(Math.floor(Math.random() * 15) + 10); // +10–25
-        setTimeout(bigGrowth, Math.random() * 45000 + 30000); // 30–75 сек
+        updateCounter(Math.floor(Math.random() * 15) + 10);
+        setTimeout(bigGrowth, Math.random() * 45000 + 30000);
     }
-
-    // Показ стартового значения
     $("#counter").text(formatNumber(counter));
-
-    // Запуск
     setTimeout(smallGrowth, 2000);
     setTimeout(bigGrowth, 10000);
 
@@ -79,6 +62,7 @@ $(document).ready(function () {
         window.location.href = url;
     });
 });
+// boxes slider code
 document.addEventListener('DOMContentLoaded', function () {
     const splide = new Splide('.splide', {
         type: 'slide',

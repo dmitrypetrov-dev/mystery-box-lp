@@ -501,16 +501,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
     background-image: linear-gradient(90deg, #FFFFFF 0%, #A9B4C3 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 1.125rem;
     margin-bottom: 0.625rem;
-}
-
-.splide {
-    overflow: hidden;
 }
 
 .splide__pagination {
@@ -559,11 +556,36 @@ body {
 
 .welcome__box {
     cursor: pointer;
+    max-width: 13.5rem;
     transition: all .200s ease;
 }
 
 .welcome__box:hover {
     transform: translateY(-5px);
+}
+
+.welcome__box.active {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+
+    25% {
+        transform: translateX(-15px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(15px) rotate(2deg);
+    }
+
+    75% {
+        transform: translateX(-13px) rotate(-1deg);
+    }
 }
 
 .welcome__bottom {
@@ -645,6 +667,10 @@ body {
 
     .welcome__title {
         font-size: 2.5rem;
+    }
+
+    .splide {
+        overflow: hidden;
     }
 
     .welcome__boxes {
