@@ -2,7 +2,7 @@ $(document).ready(function () {
     //boxes code
     $(".welcome__box").on("click", function () {
         $(".modal").show(0);
-
+        updateSpinValues();
         setTimeout(() => {
             $(".modal").addClass("active");
 
@@ -12,7 +12,14 @@ $(document).ready(function () {
             });
         }, 10);
     });
-    //timer code
+    function updateSpinValues() {
+        let options = [10, 20, 30];
+        let free = options[Math.floor(Math.random() * options.length)];
+        let total = Number("1" + free);
+        $('#free-spins').text(free);
+        $('#total-spins').text(total);
+    }
+    //counter code
     let baseValue = 991;
     let savedValue = localStorage.getItem("liveUsers");
     let counter = savedValue ? parseInt(savedValue) : baseValue;
