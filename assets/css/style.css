@@ -699,7 +699,7 @@ body {
 
     .welcome__box {
         flex-shrink: 0;
-        max-width: 13.625rem;
+        max-width: 11rem;
     }
 
     .modal__content-title {
@@ -708,5 +708,11 @@ body {
 
     .modal__content-link {
         font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .page__welcome {
+        padding-top: 5rem;
     }
 }
