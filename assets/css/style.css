@@ -530,6 +530,8 @@ body {
     outline: none;
     background-color: #00000059;
     cursor: pointer;
+    padding: 0;
+    display: inline-block;
 }
 
 .splide__pagination__page.is-active {
