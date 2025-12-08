@@ -1,12 +1,100 @@
 $(document).ready(function () {
+    //getting the gtag value
+    // const params = new URLSearchParams(window.location.search);
+    // let qtag = params.get('qtag');
+    // if (qtag) {
+    //     sessionStorage.setItem('qtag', qtag);
+    // } else {
+    //     qtag = sessionStorage.getItem('qtag');
+    // }
+    // if (qtag) {
+    //     const newUrl = `https://10black.net/api/affiliate/?qtag=${qtag}`;
+    //     $('.modal__content-link').attr('href', newUrl);
+    //     console.log(newUrl);
+    // }
+    // // language selection code
+    // const accessKey = 'd52fa6bf-a8a9-46c3-b195-2fcda479a705';
+    // if (!sessionStorage.getItem('countryChecked')) {
+    //     $.ajax({
+    //         url: 'https://apiip.net/api/check?&accessKey=' + accessKey,
+    //         success: function (result) {
+    //             console.log(result.countryCode);
+    //             sessionStorage.setItem('countryChecked', 'true');
+    //             if (result.countryCode === 'PL') {
+    //                 window.location.href = '/pl';
+    //             } else if (result.countryCode === 'PT') {
+    //                 window.location.href = '/pt';
+    //             } else if (result.countryCode === 'IT') {
+    //                 window.location.href = '/it';
+    //             } else {
+    //                 window.location.href = '/';
+    //             }
+    //         }
+    //     });
+    // }
+    //welcome button code
+    $(window).on('load', function () {
+        const video = document.getElementById('overlay-video');
+        video.play().catch(() => { });
+        setTimeout(() => {
+            $("#overlay-video").fadeOut();
+            $('.welcome__intro').removeClass('active');
+            $('.welcome__overlay').addClass('active');
+            $('.welcome__content').addClass('active');
+        }, 4500);
+    });
+    $(".welcome__button").on("click", function () {
+        $('.welcome__overlay').removeClass('active');
+        $('#background-sound')[0].play();
+    });
     //boxes code
     $(".welcome__box").on("click", function () {
-        let options = [10, 20, 30];
-        let free = options[Math.floor(Math.random() * options.length)];
-        let total = Number("1" + free);
+        const clickedBox = $(this);
+        const boxImage = clickedBox.find('#box-img');
+        const fireBoxImage = clickedBox.find('#firebox-img');
+        boxImage.hide();
+        clickedBox.addClass('active');
+        fireBoxImage.show();
+        fireBoxImage.addClass('active');
+        setTimeout(() => {
+            fireBoxImage.hide();
+        }, 7000);
+        const allBoxes = $('.welcome__box');
+        allBoxes.not(clickedBox).addClass('hidden');
+        $('.welcome__background').hide();
+        $('.hide-after-anim').slideUp();
+        playBurningSound();
+        let options = [20, 40, 60];
+        let extra = options[Math.floor(Math.random() * options.length)];
+        let free = Number("1" + extra);
         $('#free-spins').text(free);
-        $('#total-spins').text(total);
+        $('#extra-spins').text(extra);
+        // $('#unique-id').text(generateNumber());
+        if ($(window).width() < 768) {
+            allBoxes.not(clickedBox).remove();
+            $('.splide__pagination').hide();
+            $('.welcome__boxes').addClass('active');
+        }
     });
+    function playBurningSound() {
+        const audio = document.getElementById('burning-sound');
+        audio.currentTime = 0;
+        audio.play().catch(() => { });
+    }
+    $('.welcome__box').on('mouseenter', function () {
+        const audio = document.getElementById('hover-sound');
+        audio.currentTime = 0;
+        audio.play().catch(() => { });
+    });
+    // function generateNumber() {
+    //     const STORAGE_KEY = "uniqueModalNumber";
+    //     let savedNumber = localStorage.getItem(STORAGE_KEY);
+    //     if (!savedNumber) {
+    //         savedNumber = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000;
+    //         localStorage.setItem(STORAGE_KEY, savedNumber);
+    //     }
+    //     return savedNumber;
+    // }
     //counter code
     let baseValue = 991;
     let savedValue = localStorage.getItem("liveUsers");
@@ -41,29 +129,22 @@ $(document).ready(function () {
     $("#counter").text(formatNumber(counter));
     setTimeout(smallGrowth, 2000);
     setTimeout(bigGrowth, 10000);
-
-    // language selection code
-    $('#language-select').on('change', function () {
-        const url = $(this).val();
-        window.location.href = url;
-    });
 });
 // boxes slider code
 document.addEventListener('DOMContentLoaded', function () {
-    const splide = new Splide('.splide', {
-        type: 'slide',
-        drag: 'free',
-        arrows: false,
-        pagination: true,
-        autoWidth: true,
-        focus: 'center',
-        gap: '1.5rem',
-        mediaQuery: 'min',
+    const swiper = new Swiper('.swiper', {
+        loop: false,
+        freeMode: true,
+        slidesPerView: 'auto',
+        spaceBetween: 24,
         breakpoints: {
             768: {
-                destroy: true,
-            },
-        }
+                enabled: false,
+            }
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
     });
-    splide.mount();
 });

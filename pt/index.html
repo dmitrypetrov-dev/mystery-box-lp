@@ -10,69 +10,123 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preload" as="image" href="../assets/images/firebox.webp">
+    <link rel="preload" href="../assets/video/background-man.mp4" as="fetch" type="video/mp4" crossorigin="anonymous">
+    <!-- Hotjar script -->
+    <script src="https://t.contentsquare.net/uxa/fea3269fed1b5.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="header__container">
-                <div class="header__wrapper">
-                    <select class="header__select" name="" id="language-select">
-                        <option value="https://ztenblack.github.io/mystery-box/">English</option>
-                        <option value="https://ztenblack.github.io/mystery-box/pl">Polish</option>
-                        <option selected disabled value="https://ztenblack.github.io/mystery-box/pt">Portuguese</option>
-                    </select>
-                </div>
-            </div>
-        </header>
         <main class="page">
             <section class="page__welcome welcome">
-                <div class="welcome__container _container">
-                    <div class="welcome__logo">
-                        <img src="../assets/images/svg/Logo.svg" alt="10black Logo">
-                    </div>
-                    <h1 class="welcome__title">FAÇA A SUA ESCOLHA</h1>
-                    <p class="welcome__subtitle">Três caixas. Três oportunidades.</p>
-                    <p class="welcome__subtitle">Uma define o seu caminho.</p>
-                    <div class="welcome__counter">
-                        <div>Escolhas efetuadas:</div>
-                        <div id="counter">991</div>
-                    </div>
-                    <div class="splide">
-                        <div class="splide__track">
-                            <div class="welcome__boxes splide__list">
-                                <div class="welcome__box splide__slide">
-                                    <img src="../assets/images/box.webp" alt="Mystery box">
-                                </div>
-                                <div class="welcome__box splide__slide">
-                                    <img src="../assets/images/box.webp" alt="Mystery box">
-                                </div>
-                                <div class="welcome__box splide__slide">
-                                    <img src="../assets/images/box.webp" alt="Mystery box">
-                                </div>
+                <div class="welcome__intro active">
+                    <video class="welcome__background" id="overlay-video" muted loop playsinline webkit-playsinline
+                        preload="auto">
+                        <source src="../assets/video/background-man.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="welcome__overlay">
+                    <button class="welcome__button">FAÇA A SUA ESCOLHA</button>
+                </div>
+                <div class="welcome__content">
+                    <div class="welcome__container _container">
+                        <div class="welcome__wrapper">
+                            <div class="welcome__logo hide-after-anim">
+                                <img src="../assets/images/svg/Logo.svg" alt="10black Logo">
                             </div>
+                            <h1 class="welcome__title hide-after-anim">FAÇA A SUA ESCOLHA</h1>
+                            <p class="welcome__subtitle hide-after-anim">Três caixas. Três oportunidades.</p>
+                            <p class="welcome__subtitle hide-after-anim">Uma define o seu caminho.</p>
+                            <div class="welcome__counter hide-after-anim">
+                                <div>Escolhas efetuadas:</div>
+                                <div id="counter">991</div>
+                            </div>
+                            <div class="swiper">
+                                <div class="welcome__boxes swiper-wrapper">
+                                    <div class="welcome__box swiper-slide">
+                                        <img src="../assets/images/box.webp" alt="Mystery box" id="box-img">
+                                        <img src="../assets/images/firebox.webp" loading="eager" alt="Mystery box"
+                                            id="firebox-img">
+                                    </div>
+                                    <div class="welcome__box swiper-slide">
+                                        <img src="../assets/images/box.webp" alt="Mystery box" id="box-img">
+                                        <img src="../assets/images/firebox.webp" loading="eager" alt="Mystery box"
+                                            id="firebox-img">
+                                    </div>
+                                    <div class="welcome__box swiper-slide">
+                                        <img src="../assets/images/box.webp" alt="Mystery box" id="box-img">
+                                        <img src="../assets/images/firebox.webp" loading="eager" alt="Mystery box"
+                                            id="firebox-img">
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="welcome__bottom hide-after-anim">Corra, oferta por tempo limitado</div>
                         </div>
                     </div>
-                    <div class="welcome__bottom">Corra, oferta por tempo limitado</div>
                 </div>
+                <video class="welcome__background" autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="../assets/video/background.mp4" type="video/mp4" />
+                </video>
+                <audio class="welcome__music" id="background-sound" loop preload="auto">
+                    <source src="../assets/sound/music.mp3" type="audio/mpeg">
+                </audio>
+                <audio class="welcome__music" id="hover-sound" preload="auto">
+                    <source src="../assets/sound/laugh.mp3" type="audio/mpeg">
+                </audio>
+                <audio class="welcome__music" id="modal-sound" preload="auto">
+                    <source src="../assets/sound/congratulations.mp3" type="audio/mpeg">
+                </audio>
+                <audio class="welcome__music" id="burning-sound" preload="auto">
+                    <source src="../assets/sound/burning.mp3" type="audio/mpeg">
+                </audio>
             </section>
         </main>
         <div class="modal">
             <div class="modal__wrapper">
                 <div class="modal__content">
-                    <p class="modal__content-text yellow" style="margin-bottom: 1.5rem;">PRÉMIO OBTIDO: <span id="free-spins">0</span> RONDAS GRÁTIS</p>
-                    <p class="modal__content-text">Upgrade disponível!</p>
-                    <p class="modal__content-text" style="margin-bottom: 1.5rem;">Adicione estas rondas às suas Rondas Grátis do Bónus de Boas-Vindas de 400% e obtenha um total de <span id="total-spins">0</span> Free Spins para começar.</p>
-                    <p class="" style="margin-bottom: 1.5rem; font-style: italic;">*Por favor, tire uma captura de ecrã e envie-a para o nosso apoio ao cliente.</p>
-                    <a class="modal__content-link" href="https://10black.net/en/promotions/mystery-welcome-bonus">Claim prize now</a>
+                    <img src="../assets/images/svg/Logo.svg" alt="10black Logo">
+                    <p class="modal__content-text big">GANHASTE!</p>
+                    <div class="modal__content-block" style="margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="modal__content-img">
+                                <img src="../assets/images/gift.webp" alt="">
+                            </div>
+                            <div>
+                                <p class="modal__content-text yellow">400%</p>
+                                <p class="modal__content-text">BÓNUS DE BOAS-VINDAS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__content-block" style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="modal__content-img">
+                                <img src="../assets/images/freespins.webp" alt="">
+                            </div>
+                            <div>
+                                <p class="modal__content-text yellow" id="free-spins">0</p>
+                                <p class="modal__content-text">ROTAÇÕES GRATUITAS</p>
+
+                            </div>
+                        </div>
+                        <p class="modal__content-text gray">100 Rotações Gratuitas de Boas-Vindas + <span
+                                id="extra-spins">0</span>
+                            Extra</p>
+                    </div>
+                    <a class="modal__content-link" href="https://10black.net/">
+                        <div class="modal__content-link-text big">REIVINDICAR PRÉMIO</div>
+                        <div class="modal__content-link-text small">É necessário um depósito inicial mínimo de €20</div>
+                    </a>
+                    <p class="modal__content-footnote" style="margin-bottom: 0.5rem;">Envia uma captura de ecrã ao apoio para desbloquear o prémio.</p>
                 </div>
             </div>
         </div>
     </div>
     <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jquery-ui.min.js"></script>
-    <script src="../assets/js/splide.min.js"></script>
+    <script src="../assets/js/swiper-bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/modal-animation.js"></script>
 </body>
